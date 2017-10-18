@@ -48,7 +48,7 @@ void add(char name[],char Lname[], node** iterator){
 //it should delete nodes
 node* delete(char name[],char Lname[],node ** iterator){
 
-  if((*iterator)==0){                                       //checks if theroot is empry
+  if((*iterator)==0){                                       //checks if the root is empty
     return (*iterator);
   }
 
