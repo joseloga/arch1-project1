@@ -13,15 +13,15 @@ This demo contains the following files: bnlist.h header file of BST structure, f
 
 To compile:
 
- $ make
+ - $ make
 
 To test it, try:
 
- $ make demo
+ - $ make demo
 
 To delete binaries:
 
-$ make clean
+- $ make clean
 
 NOTES
 - it may contains little bugs on printing from the text file in the terminal.
