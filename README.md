@@ -25,4 +25,4 @@ To delete binaries:
 
 NOTES
 - it may contains little bugs on printing from the text file in the terminal.
-- the delete options does not work properly and may cause changes in the BST structure.(runing the program without deleting employees it does not affect the others methods)
+- the delete options does not work properly and may cause changes in the BST structure.(runing the program without deleting employees it would work properly)
