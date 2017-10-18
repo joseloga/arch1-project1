@@ -16,10 +16,12 @@ To compile:
  $ make
 
 To test it, try:
+
  $ make demo
 
 To delete binaries:
- $ make clean
+
+$ make clean
 
 NOTES
 - it may contains little bugs on printing from the text file in the terminal.
