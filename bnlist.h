@@ -8,4 +8,21 @@
 
  };
 
+typedef struct bnlist node;
+
+int menu();
+
+void add(char name[],char Lname[], node** iterator);
+
+node* delete(char name[],char Lname[],node ** iterator);
+
+void printList(node* iterator);        
+
+void cleanFile();
+
+void writeToFile(node *iterator);
+
+void readFile();
+
+
 #endif 
