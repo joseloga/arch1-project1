@@ -1,4 +1,4 @@
-#include "bnlist.h"
+#include "bnlist.h"                       //
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -44,10 +44,16 @@ void add(char name[],char Lname[], node** iterator){
 
 }
 
+
+//it should delete nodes
 node* delete(char name[],char Lname[],node ** iterator){
-  if((*iterator)==0){
+
+  if((*iterator)==0){                                       //checks if theroot is empry
     return (*iterator);
   }
+
+
+  
   printf("---- %s\n",(*iterator)->name);
   int cmpName =strcmp((*iterator)->name,name);
   int cmpLast =strcmp((*iterator)->last,Lname);
@@ -57,56 +63,42 @@ node* delete(char name[],char Lname[],node ** iterator){
   }
   else if(cmpLast >=0){
     delete(name,Lname,&(*iterator)->left);
-  }
-  /* node *aux=NULL; */
-  /* aux=(*iterator)->right; */
-  /* int cmpNext =strcmp(aux->name,name); */
-  /* int cmpNext2 =strcmp(aux->last,Lname); */
+   }
  
-  /* if(cmpNext ==0 && cmpNext2==0){ */
 
-  /*   printf("------------\n"); */
-  /*   (*iterator)->left=NULL; */
-  /*   return (*iterator); */
-    
-  /* } */
-
-
-  
+  // case if both childs are null.
   if((cmpName==0 && cmpLast==0)){
 
     if((*iterator)->left ==0 && (*iterator)->right==0){
-      printf("Both NULL\n");
+      //   printf("Both NULL\n")                          debug purposes;
       node *temp = NULL;
       temp=(node*)malloc(sizeof(node));
-      // strcpy(temp->name,"jose");
-      // strcpy(temp->last,"lopez");
      free((*iterator));
-      /* return temp; */
+      return temp;
     }
 
-    
-  /* if((*iterator)->left ==0){ */
-  /*   printf("left\n"); */
-  /*   node *temp = NULL; */
-  /*     temp=(node*)malloc(sizeof(node)); */
-  /*     temp=(*iterator)->right; */
-  /*     free((*iterator)); */
-  /*     return temp; */
-  /*    } */
-  /*   if((*iterator)->right ==0){ */
-  /*     node *temp = NULL; */
-  /*     temp=(node*)malloc(sizeof(node)); */
-  /*     temp=(*iterator)->left; */
-  /*     free((*iterator)); */
-  /*     return temp; */
-  /*   } */
+    //if left child is null replace it with the next right child
+  if((*iterator)->left ==0){
+    printf("left\n");
+    node *temp = NULL;
+      temp=(node*)malloc(sizeof(node));
+      temp=(*iterator)->right;
+      free((*iterator));
+      return temp;
+     }
+
+//if right child is null replace it with the next left child
+    if((*iterator)->right ==0){
+      node *temp = NULL;
+      temp=(node*)malloc(sizeof(node));
+      temp=(*iterator)->left;
+      free((*iterator));
+      return temp;
+    }
   } 
   return(*iterator);
     
 }
-
-
 
 
  // print the list an inorder  left, root , right
@@ -120,7 +112,7 @@ void printList(node* iterator){
 }
 
 
-// creates the new file if does not exist.
+// cleans the file if exist or it creates the new file.
 void cleanFile(){
   FILE *noteFile;
   if(noteFile!=NULL){
